@@ -1,1 +1,70 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Dashboard with Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+
+<body>
+  <!-- LOGIN / REGISTER SECTION -->
+  <div id="authSection" class="auth-container">
+    <h2 id="authTitle">🔐 Login</h2>
+    <input type="email" id="authEmail" placeholder="Email" /><br>
+    <input type="password" id="authPassword" placeholder="Password" /><br>
+    <button id="authActionBtn">Login</button>
+    <p id="switchText">
+      Don’t have an account?
+      <span class="switch-link" id="switchLink">Register</span>
+    </p>
+  </div>
+
+  <!-- DASHBOARD SECTION -->
+  <div id="dashboardSection" class="container" style="display:none;">
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+    <h1>💰 Budget Dashboard - <span id="usernameDisplay"></span></h1>
+
+    <div>
+      <select id="monthSelector"></select>
+      <select id="yearSelector"></select>
+    </div>
+
+    <div class="budget-setup">
+      <input type="number" id="totalBudgetInput" placeholder="Set total budget (₹)" />
+      <button id="setBudgetBtn">Set Budget</button>
+    </div>
+
+    <div class="summary">
+      <div>
+        <h4>Total Budget</h4>
+        <p id="totalBudget">₹0</p>
+      </div>
+      <div>
+        <h4>Total Spent</h4>
+        <p id="balance">₹0</p>
+      </div>
+      <div>
+        <h4>Remaining</h4>
+        <p id="remaining">₹0</p>
+      </div>
+    </div>
+
+    <div class="dashboard-insights">
+      <p>💹 <span class="highlight" id="percentUsed">0%</span> of your budget used this month.</p>
+      <p>🏆 Highest Spending: <span class="highlight" id="topCategory">None</span></p>
+    </div>
+
+    <h2>Expense Categories</h2>
+    <div class="category-grid" id="categoryGrid"></div>
+
+    <h2>📊 Expense Distribution</h2>
+    <canvas id="expenseChart"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
